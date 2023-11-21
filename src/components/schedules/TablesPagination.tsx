@@ -7,7 +7,7 @@ export default function (props: { pages_list: JSX.Element[], current_idx: number
                 <a className="page-link" onClick={props.prev_table} tabIndex={-1} aria-disabled="true">&laquo;</a>
             </li>
 
-            {...props.pages_list.map((page, idx) => {
+            {...props.pages_list.map((_page, idx) => {
                 return <li className="page-item">
                     <a className={(idx + 1 === props.current_idx ? "active " : "") + "page-link"} onClick={props.choose_table}> {idx + 1}</a></li>
             })}

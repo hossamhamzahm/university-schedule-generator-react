@@ -35,7 +35,6 @@ interface FilterOptions {
 
 function generate_all(data: ScheduleAPI, filter_options: FilterOptions): JSX.Element[] {
 
-    let flag = true;
     let tables: JSX.Element[] = [];
     let filtered_data = data.results as week[];
 
@@ -71,7 +70,6 @@ function generate_all(data: ScheduleAPI, filter_options: FilterOptions): JSX.Ele
         }
 
         tables.push(<Table rows={rows} />);
-        flag = false;
     }
 
     return tables;
@@ -107,7 +105,7 @@ export default function Schedules() {
         set_filter_options({ ...filter_options })
     }
 
-    let pages_list = all_tables.map((table, idx) => {
+    let pages_list = all_tables.map((_table, idx) => {
         return <li className="page-item">
             <a className={(idx === 0 ? "active " : "") + "page-link"} onClick={choose_table}> {idx + 1}</a></li>
     });
@@ -117,13 +115,13 @@ export default function Schedules() {
         set_current_idx(() => chosen_idx)
     }
 
-    function next_table(event: MouseEvent<HTMLAnchorElement>) {
+    function next_table(_event: MouseEvent<HTMLAnchorElement>) {
         console.log(current_idx)
         if (current_idx >= pages_list.length) return;
         set_current_idx((prev_idx) => prev_idx + 1)
     }
 
-    function prev_table(event: MouseEvent<HTMLAnchorElement>) {
+    function prev_table(_event: MouseEvent<HTMLAnchorElement>) {
         if (current_idx <= 1) return;
         set_current_idx(() => current_idx - 1)
     }

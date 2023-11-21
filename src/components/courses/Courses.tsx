@@ -35,7 +35,7 @@ export default function Courses(){
     }
 
     async function add_course(event: MouseEvent<HTMLButtonElement>){
-        const idx_str = (event.currentTarget.getAttribute("idx"));
+        const idx_str = (event.currentTarget.getAttribute("data-idx"));
         let course: Course;
         if(!idx_str) return ; 
         

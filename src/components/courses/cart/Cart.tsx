@@ -21,7 +21,7 @@ const Config = {
 export default function Cart(props: { cart_list: Course[], remove_course: (event: MouseEvent<HTMLButtonElement>) => void}){
     const navigate = useNavigate();
 
-    async function generate_schedules(event: MouseEvent<HTMLButtonElement>) {
+    async function generate_schedules(_event: MouseEvent<HTMLButtonElement>) {
         const needed_courses = props.cart_list.map(course => course.course_code);
 
         const Client = axios.create(Config)

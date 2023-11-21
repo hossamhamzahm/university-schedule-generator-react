@@ -9,8 +9,9 @@ export default function SearchResultItem(props: {course: Course, idx: number, ad
             <div className="card-body">
                 <h5 className="card-title">{props.course.course_code}</h5>
                 <p className="card-text">{props.course.course_name}</p>
-                {/* @ts-ignroe */}
-                <button idx={props.idx} onClick={props.add_course} className="btn btn-primary">Add to cart</button>
+                { // @ts-ignroe 
+                    <button data-idx={props.idx} onClick={props.add_course} className="btn btn-primary">Add to cart</button>
+                }
             </div>
         </div>
 }
