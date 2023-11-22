@@ -25,6 +25,8 @@ async function get_cnt(): Promise<{"id": number, "total_cnt": number, "successfu
 }
 
 
+let flag = true;
+
 
 export default function Navbar(){
     const [cnt, set_cnt] = useState({ "id": -1, "total_cnt": -1, "successfull_cnt": -1 });
@@ -32,12 +34,16 @@ export default function Navbar(){
     const update_cnt = async () => {
         const cnt = await get_cnt();
         set_cnt(cnt);
+        
+        if(flag) setInterval(update_cnt, 5000);
+        flag = false;
     }
 
     useEffect(() => {
         update_cnt();
     }, [])
     
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container">
