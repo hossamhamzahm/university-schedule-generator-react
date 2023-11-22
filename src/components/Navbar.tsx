@@ -36,7 +36,7 @@ export default function Navbar(){
 
     useEffect(() => {
         update_cnt();
-    }, [cnt])
+    }, [])
     
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
