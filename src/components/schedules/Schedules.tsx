@@ -39,7 +39,7 @@ interface FilterOptions {
 function generate_all(data: ScheduleAPI, filter_options: FilterOptions): JSX.Element[] {
 
     let tables: JSX.Element[] = [];
-    let filtered_data = data.results as week[];
+    let filtered_data: week[] = JSON.parse(JSON.stringify(data.results));
 
     if (filter_options.empty) filtered_data = empty_days(data.results);
     if (filter_options.late) filtered_data = no_late(data.results);
