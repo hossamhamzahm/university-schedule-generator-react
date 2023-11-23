@@ -47,7 +47,7 @@ export default function Navbar(){
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container">
-                <NavLink className="navbar-brand" to={(window.location.host == 'hossamhamzahm.github.io' ? "./university-schedule-generator-react/" : "./") + "home"}>Gadwelooh</NavLink>
+                <NavLink className="navbar-brand" to="./home">Gadwelooh</NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -56,14 +56,14 @@ export default function Navbar(){
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav w-100">
                         <li className="nav-item">
-                            <NavLink className="nav-link" aria-current="page" to={(window.location.host == 'hossamhamzahm.github.io' ? "./university-schedule-generator-react/" : "./") + "home"}>Home</NavLink>
+                            <NavLink className="nav-link" aria-current="page" to="./home">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to={(window.location.host == 'hossamhamzahm.github.io' ? "./university-schedule-generator-react/" : "./") + "courses"}>Courses</NavLink>
+                            <NavLink className="nav-link" to="./courses">Courses</NavLink>
                         </li>
 
                         <li className="nav-item">
-                            <NavLink className="nav-link" to={(window.location.host == 'hossamhamzahm.github.io' ? "./university-schedule-generator-react/" : "./") + "schedules"}>Schedules</NavLink>
+                            <NavLink className="nav-link" to="./schedules">Schedules</NavLink>
                         </li>
 
                         <li className="nav-item ms-auto">
