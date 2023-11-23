@@ -27,7 +27,7 @@ export default function Cart(props: { cart_list: Course[], remove_course: (event
         const Client = axios.create(Config)
         const scheudles = await Client.post<{ pagination: Obj, results: Obj[] }>("/schedules", {needed_courses}, { params });
         console.log(scheudles.data)
-        if (Array.isArray(scheudles.data.results)) console.log("Here")
+
         navigate("/schedules", { replace: true, state: { data: scheudles.data }})
     }
 

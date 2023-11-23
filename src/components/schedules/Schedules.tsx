@@ -33,6 +33,9 @@ interface FilterOptions {
     early: number;
 }
 
+
+
+
 function generate_all(data: ScheduleAPI, filter_options: FilterOptions): JSX.Element[] {
 
     let tables: JSX.Element[] = [];
@@ -42,7 +45,7 @@ function generate_all(data: ScheduleAPI, filter_options: FilterOptions): JSX.Ele
     if (filter_options.late) filtered_data = no_late(data.results);
     if (filter_options.early) filtered_data = no_early(data.results);
 
-    if (filtered_data.length > 20) filtered_data = filtered_data.splice(0, 20);
+    if (filtered_data.length > 20) filtered_data = filtered_data.slice(0, 20);
 
     const colors = ["bg-orange", "bg-sky", "bg-green", "bg-yellow", "bg-pink", "bg-purple"];
     const rand_color = () => colors[Math.floor(Math.random() * colors.length)];
@@ -112,7 +115,7 @@ export default function Schedules() {
 
     function choose_table(event: MouseEvent<HTMLAnchorElement>) {
         const chosen_idx = parseInt(event.currentTarget.innerHTML);
-        set_current_idx(() => chosen_idx)
+         set_current_idx(() => chosen_idx)
     }
 
     function next_table(_event: MouseEvent<HTMLAnchorElement>) {
