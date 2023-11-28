@@ -41,9 +41,9 @@ function generate_all(data: ScheduleAPI, filter_options: FilterOptions): JSX.Ele
     let tables: JSX.Element[] = [];
     let filtered_data: week[] = JSON.parse(JSON.stringify(data.results));
 
-    if (filter_options.empty) filtered_data = empty_days(data.results);
-    if (filter_options.late) filtered_data = no_late(data.results);
-    if (filter_options.early) filtered_data = no_early(data.results);
+    if (filter_options.empty) filtered_data = empty_days(filtered_data);
+    if (filter_options.late) filtered_data = no_late(filtered_data);
+    if (filter_options.early) filtered_data = no_early(filtered_data);
 
     if (filtered_data.length > 20) filtered_data = filtered_data.slice(0, 20);
 
