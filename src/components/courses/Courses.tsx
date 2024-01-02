@@ -7,51 +7,51 @@ import { Course } from "./interfaces";
 import CourseMotion from "./CourseMotion";
 
 
-const params = {pageNo: 1, limit: 1000, q:''};
+const params = { pageNo: 1, limit: 1000, q: '' };
 const Config = {
-    baseURL: 'https://gadwelooh-api.ddns.net',
-        headers: {
+    baseURL: 'https://gadwelooh-api.publicvm.com',
+    headers: {
         // 'Accept': 'application/vnd.GitHub.v3+json',
         //'Authorization': 'token <your-token-here> -- https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token'
     },
     transformResponse: [
         (data: string) => JSON.parse(data),
-  ],
+    ],
 }
 
 
 
-export default function Courses(){
-    async function get_courses(event: FormEvent<HTMLInputElement>){
+export default function Courses() {
+    async function get_courses(event: FormEvent<HTMLInputElement>) {
         params.q = event.currentTarget.value;
-        if(params.q == ''){
+        if (params.q == '') {
             set_course_response_list(empty_list)
-            return ;
+            return;
         }
 
         const Client = axios.create(Config)
-        const courses = await Client.get<{pagination: string, results: Course[]}>("/courses", {params});
-        if(Array.isArray(courses.data.results)) set_course_response_list(courses.data.results);
+        const courses = await Client.get<{ pagination: string, results: Course[] }>("/courses", { params });
+        if (Array.isArray(courses.data.results)) set_course_response_list(courses.data.results);
     }
 
-    async function add_course(event: MouseEvent<HTMLButtonElement>){
+    async function add_course(event: MouseEvent<HTMLButtonElement>) {
         const idx_str = (event.currentTarget.getAttribute("data-idx"));
         let course: Course;
-        if(!idx_str) return ; 
-        
+        if (!idx_str) return;
+
         course = course_response_list[parseInt(idx_str)];
         const already_added = cart_list.some(cart_course => cart_course.course_code === course.course_code)
-        if(already_added) return ; 
-        
+        if (already_added) return;
+
         set_cart_list([...cart_list, course])
     }
 
-    async function remove_course(event: MouseEvent<HTMLButtonElement>){
+    async function remove_course(event: MouseEvent<HTMLButtonElement>) {
         const course_code = (event.currentTarget.getAttribute("id"));
-        if(!course_code) return ; 
+        if (!course_code) return;
 
         const new_cart_list = cart_list.filter((course) => {
-            if(course.course_code !== course_code) return course;
+            if (course.course_code !== course_code) return course;
         });
 
         set_cart_list(() => new_cart_list);
@@ -62,11 +62,11 @@ export default function Courses(){
     const [cart_list, set_cart_list] = useState(empty_list)
 
 
-    
+
     return (
         <div className="d-flex justify-content-between">
             <div className="d-flex col-12 col-md-8 justify-content-between flex-wrap">
-                
+
                 <CourseSearch get_courses={get_courses} />
 
                 <CourseMotion>

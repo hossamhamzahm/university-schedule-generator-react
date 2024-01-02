@@ -1,27 +1,31 @@
-# React + TypeScript + Vite
+# University Schedule Generator Frontend using React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Project Idea
+This project focuses on building a schedule generator that generates all possible schedules for a prescribed list of courses entered by the user (using backtracking algorithm), then storing this list in a database. The generated schedules should have no conflicts or issues within it.
+<br>
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### [University Schedule Generator Application Link](https://university-schedule-generator.vercel.app)
+#### [Backend API](https://gadwelooh-api.publicvm.com/courses)
+#### [Swagger API Documentation](https://gadwelooh-api.publicvm.com/api-docs)
+#### [Backend Code Repository](https://github.com/hossamhamzahm/University-Schedule-Generator/tree/deploy)
 
-## Expanding the ESLint configuration
+> Note: These links may stop working after AWS free tier ends for my account
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+### Main objectives
+    - Registering and saving users.
+    - Saving all courses with their different sections, tutorials and labs.
+    - Saving the different possible schedules that a user could have.
+    - Retrieval of the available schedules to be viewed by the user whenever needed.
+    - Ability to update courses’, users’, or professors' information.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Technologies used in this project:
+    - HTML
+    - CSS
+    - Bootstrap
+    - TypeScript
+    - React
+    - Vercel
+
